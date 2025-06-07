@@ -11,7 +11,7 @@ describe("Delete hero", () => {
     cy.get("[data-cy='trash']").eq(7).click();
     cy.get("button.bg-red-600").click();
   });
-  it("delete hero no", () => {
+  it("delete hero withdrawal", () => {
     cy.visit("http://localhost:3000/heroes");
     cy.get("nav button").click();
     cy.get("[data-cy='email']").type("admin@test.com");
