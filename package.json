@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/elylucas/cypress-heroes#readme",
   "devDependencies": {
+    "@types/cypress": "^0.1.6",
     "concurrently": "^7.6.0",
     "cypress": "^14.4.1",
     "cypress-file-upload": "^5.0.8",
