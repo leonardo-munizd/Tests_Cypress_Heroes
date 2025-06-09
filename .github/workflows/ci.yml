@@ -1,21 +1,33 @@
 name: CI
 
 on: [push]
+
 jobs:
   build-test:
     runs-on: ubuntu-22.04
     steps:
-      - name: checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: cypress Tests 🧪
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Run Cypress Tests 🧪
         uses: cypress-io/github-action@v5
         with:
           start: "npm run dev"
-          build: "npm run build"
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload Cypress artifacts
         if: always()
+        uses: actions/upload-artifact@v4
         with:
           name: Cypress Results
           path: |
